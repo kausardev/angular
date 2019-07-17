@@ -266,43 +266,85 @@ the continent as the AFCFTA policies take effect.</p>
                                <div class="row">
                                    <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control"  name="name" id="name" [(ngModel)]="model.name" require placeholder="Full Name" autocomplete="off">
+                                    <input type="text" class="form-control"  name="name" id="name" [(ngModel)]="model.name" #name="ngModel" required placeholder="Full Name" autocomplete="off">
+									<div *ngIf="name.invalid && (name.dirty || name.touched)"   class="alert alert-danger">
+										<div *ngIf="name.errors.required">
+											Name is required.
+										  </div>
+										  
+									</div>
                                 </div>
                                    </div>
                                     <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" class="form-control" [(ngModel)]="model.email" placeholder="Email" autocomplete="off">
+                                    <input type="email" name="email" id="email" class="form-control" [(ngModel)]="model.email" #email="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" placeholder="Email" autocomplete="off">
+									
+									<div class="alert alert-danger" [hidden]="email.valid || email.untouched">
+										<div  *ngIf="email.errors && email.errors.required">
+											Email is required
+										</div>
+										<div *ngIf="email.errors && email.errors.pattern">
+											Email is invalid
+										</div>
+									</div>
                                 </div>
                                    </div>
                                 </div>
                                    <div class="row">
                                    <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="phone" id="phone" class="form-control" [(ngModel)]="model.phone" placeholder="Number" autocomplete="off">
+                                    <input type="text" name="phone" id="phone" class="form-control" [(ngModel)]="model.phone" #phone="ngModel" required placeholder="Phone Number" autocomplete="off">
+									<div *ngIf="phone.invalid && (phone.dirty || phone.touched)"   class="alert alert-danger">
+										<div *ngIf="phone.errors.required">
+											Phone is required.
+										  </div>
+										  
+									</div>
                                 </div>
                                        </div>
                                         <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="city" id="city" class="form-control"  [(ngModel)]="model.city" placeholder="City" autocomplete="off">
-                                </div>
+                                    <input type="text" name="city" id="city" class="form-control"  [(ngModel)]="model.city" #city="ngModel" required placeholder="City" autocomplete="off">
+									<div *ngIf="city.invalid && (city.dirty || city.touched)"   class="alert alert-danger">
+										<div *ngIf="city.errors.required">
+											City is required.
+										  </div>
+									</div>
+								</div>
                                        </div>
                                 </div>
                             
                                  <div class="form-group">
-                                    <input type="address" name="address" id="address" class="form-control" [(ngModel)]="model.address" placeholder="Address" autocomplete="off">
+                                    <input type="address" name="address" id="address" class="form-control" [(ngModel)]="model.address" #address="ngModel" required placeholder="Address" autocomplete="off">
+									<div *ngIf="address.invalid && (address.dirty || address.touched)"   class="alert alert-danger">
+										<div *ngIf="address.errors.required">
+											Address is required.
+										  </div>
+									</div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="subject" name="subject" id="subject" class="form-control"  [(ngModel)]="model.subject"placeholder="Subject" autocomplete="off">
+                                    <input type="subject" name="subject" id="subject" class="form-control"  [(ngModel)]="model.subject" #subject="ngModel" required placeholder="Subject" autocomplete="off">
+									<div *ngIf="subject.invalid && (subject.dirty || subject.touched)"   class="alert alert-danger">
+										<div *ngIf="subject.errors.required">
+											Subject is required.
+										  </div>
+									</div>
                                 </div>
                                 
                                  <div class="form-group">
-                                 <textarea  rows="5" id="comment" name ="comment" [(ngModel)]="model.comment"  placeholder="Comment" style="width:100%;    padding-left: 10px"></textarea>
+                                 <textarea  rows="5" id="comment" name ="comment" [(ngModel)]="model.comment"  placeholder="Comment" required #comment="ngModel" style="width:100%;    padding-left: 10px"></textarea>
+									<div *ngIf="comment.invalid && (comment.dirty || comment.touched)"   class="alert alert-danger">
+										<div *ngIf="comment.errors.required">
+											Comment is required.
+										  </div>
+									</div>
                                 </div>
                                 	
                               <span id="reg-st" class="text-center"></span>
-                              <button name="register-btn" >SEND</button>
+                              <button name="register-btn" [disabled]="!contactForm.valid">SEND</button>
 
                           </form>
+						 
                       </div>
                       <div [hidden]="!submitted">
                         <h2>Sent Successfully</h2>
