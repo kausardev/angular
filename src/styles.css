@@ -946,9 +946,36 @@ body {
     }
 
     .logo img {
-        height: 45px;
+        height: 40px;
         margin-right: 2px;
     }
+.wrap-3 .details-section p {
+    letter-spacing: 1px;
+    line-height: 28px;
+margin: 0;}
 
+.form-data2 .mail-id1 {
+margin-bottom: 20px;}
+
+.caption1 h1 {
+font-size: 35px;}
+
+
+
+.caption1 {
+    padding: 260px 0 200px 0;
+position: relative;}
+
+.wrap-3 .details-section img{margin-bottom:15px}
+
+.Marketing_Right {
+margin-top: 30px;}
+
+
+element.style {
+}
+.education {
+    margin: 15px 0;
+}
 
 }	
