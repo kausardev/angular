@@ -73,6 +73,9 @@ body {
     font-weight: 600
 }
 
+.wrapper-1 .navbar-btn2{background: #00305b;
+}
+
 .wrapper-1{ position: fixed;
   top: 0;
   left: 0;
@@ -935,3 +938,17 @@ body {
     
 .wrapper-2 .what-we-do p{letter-spacing: 2px;
     font-size: 18px;color:#1E93F5;font-weight: 600; padding-top: 20px;}
+	
+@media screen and (max-width:767px) {
+
+    .form-data2 .contact-page-icon {
+        width: 100% !important;
+    }
+
+    .logo img {
+        height: 45px;
+        margin-right: 2px;
+    }
+
+
+}	

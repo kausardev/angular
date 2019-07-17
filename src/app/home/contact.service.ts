@@ -17,7 +17,7 @@ ServerUrl = 'http://localhost:3000/';
   constructor(private http: HttpClient) { }
 
   contactForm(formData: Contact){
-    console.log(formData)
+    //console.log(formData)
     return this.http.post<Contact>(this.ServerUrl + 'send',formData).pipe(
       catchError(this.handleError)
       );
@@ -30,10 +30,13 @@ ServerUrl = 'http://localhost:3000/';
     if (error.error instanceof ErrorEvent) {
       // client-side error
       errorMessage = `Error: ${error.error.message}`;
+	  //errorMessage = `${error.status}`;
     } else {
       // server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+	  //errorMessage = `${error.status}`;
     }
+	//console.log(errorMessage);
     window.alert(errorMessage);
     return throwError(errorMessage);
   }
